@@ -16,10 +16,11 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Ten bai hat</th>
-            <th>Ten nghe sy</th>
-            <th>the loai</th>
-            <th>fileMusic</th>
+            <th>Tên bài hát</th>
+            <th>Tên nghệ sỹ</th>
+            <th>Thể loại</th>
+            <th>File Music</th>
+            <th>Play Music</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
             <td th:text="${music.nameNgheSy}"></td>
             <td th:text="${music.theLoai}"></td>
             <td th:text="${music.fileMusic}"></td>
+            <td><a th:href="@{/play{index}(index=${loop.index})}" class="btn btn-warning">play</a></td>
         </tr>
         </tbody>
     </table>

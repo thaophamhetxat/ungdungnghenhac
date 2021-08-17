@@ -2,6 +2,7 @@ package com.codegym.controller;
 
 import moduls.NgheNhac;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,6 +42,13 @@ public class NgheNhacController {
         ModelAndView modelAndView = new ModelAndView("create");
         modelAndView.addObject("list", new NgheNhac());
 
+        return modelAndView;
+    }
+
+    @GetMapping("/play{index}")
+    public ModelAndView showEdit(@PathVariable int index, Model model) {
+        ModelAndView modelAndView = new ModelAndView("play");
+        model.addAttribute("list", ngheNhacService.list.get(index));
         return modelAndView;
     }
 
