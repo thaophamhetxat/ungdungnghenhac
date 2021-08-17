@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<h3>Edit Music</h3>
+<form th:object="${list}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Tên bài hát:</td>
+            <td><input placeholder="nhập nameBaiHat" th:field="*{nameBaiHat}"></td>
+            <td>Tên nghệ sỹ:</td>
+            <td><input placeholder="nhập nameNgheSy" th:field="*{nameNgheSy}"></td>
+            <td>Thể loại:</td>
+            <td><input placeholder="nhập theLoai" th:field="*{theLoai}"></td>
+            <td>Music:</td>
+            <td th:text="*{fileMusic}"></td>
+            <td><input th:field="*{fileMusic}" hidden></td>
+            <td><input type="file" name="uppMusic"></td>
+
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Edit</button>
+</form>
+</body>
+</html>

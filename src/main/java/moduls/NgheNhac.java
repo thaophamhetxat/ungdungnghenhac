@@ -1,6 +1,18 @@
 package moduls;
 
+
+import org.hibernate.annotations.OrderBy;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class NgheNhac {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    int id;
     String nameBaiHat;
     String nameNgheSy;
     String theLoai;
@@ -9,7 +21,8 @@ public class NgheNhac {
     public NgheNhac() {
     }
 
-    public NgheNhac(String nameBaiHat, String nameNgheSy, String theLoai, String fileMusic) {
+    public NgheNhac(int id,String nameBaiHat, String nameNgheSy, String theLoai, String fileMusic) {
+        this.id = id;
         this.nameBaiHat = nameBaiHat;
         this.nameNgheSy = nameNgheSy;
         this.theLoai = theLoai;
@@ -46,5 +59,13 @@ public class NgheNhac {
 
     public void setFileMusic(String fileMusic) {
         this.fileMusic = fileMusic;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

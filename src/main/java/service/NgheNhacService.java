@@ -1,20 +1,42 @@
 package service;
 
 import moduls.NgheNhac;
+import org.springframework.beans.factory.annotation.Autowired;
+import repository.INgheNhacRepo;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class NgheNhacService {
-    public ArrayList<NgheNhac> list = new ArrayList<>();
-    public NgheNhacService(){
-        list.add(new NgheNhac("1","1","1","/music/tiengcuoibadao.mp3"));
-        list.add(new NgheNhac("1","1","1","/music/Roi-Toi-Luon-Cover-Ut-Nhi-Mino.mp3"));
+    @Autowired
+    INgheNhacRepo iNgheNhacRepo;
 
+    public ArrayList<NgheNhac> list = new ArrayList<>();
+
+
+    public void save(NgheNhac ngheNhac) {
+        iNgheNhacRepo.save(ngheNhac);
     }
-    public void save(NgheNhac ngheNhac){
-        list.add(ngheNhac);
+
+    public void findAll() {
+        list = iNgheNhacRepo.findAll();
     }
-    public void play(NgheNhac ngheNhac,int index){
-        list.set(index,ngheNhac);
+
+    public void edit(NgheNhac ngheNhac) {
+        iNgheNhacRepo.edit(ngheNhac);
     }
+
+    public void delete(int index) {
+        iNgheNhacRepo.Delete(list.get(index));
+        list.remove(index);
+    }
+
+//    public NgheNhac findByName(String name) {
+//        for (ngheNhac p : list) {
+//            if (p.getName().toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT))) {
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
 }

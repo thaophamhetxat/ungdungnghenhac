@@ -16,20 +16,26 @@
     <table class="table">
         <thead>
         <tr>
+            <th>STT</th>
             <th>Tên bài hát</th>
             <th>Tên nghệ sỹ</th>
             <th>Thể loại</th>
             <th>File Music</th>
             <th>Play Music</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="music,loop : ${list}">
+            <td th:text="${music.id}"></td>
             <td th:text="${music.nameBaiHat}"></td>
             <td th:text="${music.nameNgheSy}"></td>
             <td th:text="${music.theLoai}"></td>
             <td th:text="${music.fileMusic}"></td>
-            <td><a th:href="@{/play{index}(index=${loop.index})}" class="btn btn-warning">play</a></td>
+            <td><a th:href="@{/play{index}(index=${loop.index})}" class="btn btn-success">play</a></td>
+            <td><a th:href="@{/edit{index}(index=${loop.index})}" class="btn btn-warning">Edit</a></td>
+            <td><a th:href="@{/delete(index = ${loop.index})}" class="btn btn-warning">Delete</a></td>
         </tr>
         </tbody>
     </table>
